@@ -28,7 +28,7 @@ function Chat({ socket, username, room }) {
 
   useEffect(() => {
     //takes effect whenever there are changes to our socket server
-    socket.on("receive_message", (data) => {
+    socket.off("receive_message").on("receive_message", (data) => { //
       //getting back the data from backend
       setMessageList((list) => [...list, data]); //APPENDING the message list with the new texts
     });
@@ -65,7 +65,7 @@ function Chat({ socket, username, room }) {
         <input
           type="text"
           value={currentMessage}
-          placeholder="Hey..."
+          placeholder="Send a message"
           onChange={(e) => {
             setCurrentMessage(e.target.value);
           }}

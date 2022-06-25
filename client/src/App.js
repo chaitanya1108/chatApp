@@ -23,8 +23,8 @@ function App() {
       (
         <div className="joinChatContainer">
           <h3>Join A Chat</h3>
-          <input type="text" placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}}/>
-          <input type="text" placeholder="Room ID" onChange={(e)=>{setRoom(e.target.value)}}/>
+          <input type="text" placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}} onKeyPress={(e) => {e.key === "Enter" && joinRoom()}}/>
+          <input type="text" placeholder="Room ID" onChange={(e)=>{setRoom(e.target.value)}} onKeyPress={(e) => {e.key === "Enter" && joinRoom()}}/>
           <button onClick={joinRoom}>Join A Room</button>
         </div>
       )
